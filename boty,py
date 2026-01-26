@@ -1,0 +1,77 @@
+import discord
+import random
+from discord.ext import commands
+intents = discord.Intents.default()
+intents.message_content = True
+bot = commands.Bot(command_prefix = "!", intents = intents)
+# class Bot(discord.Client):
+   #import discord
+
+
+# class Bot(discord.Client):
+#     def __init__(self):
+#         intents = discord.Intents.default()
+#         intents.message_content = True
+#         super().__init__(intents=intents)
+
+
+
+@bot.event
+async def on_ready():
+    print(f'We have logged in as {bot.user}')
+@bot.command()
+async def hello(ctx):
+    ctx.send("Hello")
+@bot.command()
+async def haslo(ctx):
+    znaki = "+-/*!&$#?=@abcdefghijklnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
+    haslo = ""
+    for i in range(5):
+        haslo += random.choice(znaki)
+    ctx.send(haslo)
+# @bot.event
+# async def on_message(message):
+#     if message.author == bot.user:
+#         return
+
+#     if message.content.startswith('$hello'):
+#         await message.channel.send('Hello!')
+
+#     # if message.content.startswith('Hello'):
+#     #     await message.channel.send('Hello! What your name')
+
+#     # if message.content.startswith('haslo'):
+#     #     znaki = "+-/*!&$#?=@abcdefghijklnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
+#     #     haslo = ""
+
+#     #     for _ in range(5):
+#     #         haslo += random.choice(znaki)
+
+#     #     await message.channel.send(haslo)
+
+# bot = Bot()
+
+@bot.event
+async def on_ready():
+    print(f'We have logged in as {bot.user}')
+
+# @bot.event
+# async def on_message(message):
+#     if message.author == bot.user:
+#         return
+
+#     if message.content.startswith('$hello'):
+#         await message.channel.send('Hello!')
+
+#     if message.content.startswith('Hello'):
+#         await message.channel.send('Hello! What your name')
+
+#     if message.content.startswith('haslo'):
+#         znaki = "+-/*!&$#?=@abcdefghijklnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
+#         haslo = ""
+
+#         for _ in range(5):
+#             haslo += random.choice(znaki)
+
+#         await message.channel.send(haslo)
+bot.run("MTQ2Mjg0NzMzNTAwNzc4NDk5MQ.GI486A.N1zVTe8xUOuEgMK6n3QarldZdYxYuhZIaoqsfI")
